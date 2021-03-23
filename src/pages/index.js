@@ -113,7 +113,7 @@ const ChannelSearchResults = ({ query }) => {
       {data.map(
         ({ display_name, is_live, thumbnail_url, started_at, game_id }) => (
           <li className="flex space-x-4 items-center">
-            <div className="relative">
+            <div className="relative flex-shrink-0">
               <img
                 src={thumbnail_url}
                 alt=""
@@ -126,7 +126,7 @@ const ChannelSearchResults = ({ query }) => {
               )}
             </div>
             <div className="text-white text-xs">
-              <h2 className="text-xl font-bold text-white leading-5 mb-1">
+              <h2 className="text-xl font-bold text-white leading-5 mb-1 break-all">
                 {display_name}
               </h2>
               <p className="font-medium">
@@ -159,7 +159,7 @@ const Game = ({ id }) => {
         className="w-[25px] h-[25px] object-cover object-center rounded-full"
         alt={name}
       />
-      <p className="font-bold leading-5">{name}</p>
+      <p className="font-bold leading-4">{name}</p>
     </div>
   ))
 }
