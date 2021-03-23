@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+::-webkit-scrollbar {
+  @apply w-3 h-3;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-purple-300 rounded-lg shadow;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-purple-200;
+}
+::-webkit-scrollbar-track {
+  @apply nm-flat-purple-400 rounded-lg;
+}
