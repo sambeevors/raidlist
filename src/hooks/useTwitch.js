@@ -203,3 +203,31 @@ export const useTwitchGame = (id) => {
 
   return { isLoading, error, data: data?.data?.data }
 }
+
+export const useTwitchStreams = (params) => {
+  const access_token = useContext(AuthContext)
+  if (!access_token)
+    return { isLoading: false, error: 'No access token', data: null }
+  const { removeToken } = useAuth()
+
+  const { isLoading, error, data } = useQuery(
+    `streams?params=${JSON.stringify(params)}`,
+    () =>
+      axios.get('https://api.twitch.tv/helix/streams', {
+        params,
+        headers: {
+          Authorization: `Bearer ${access_token}`,
+          'Client-Id': process.env.NEXT_PUBLIC_TWITCH_CLIENT_ID
+        }
+      }),
+    {
+      onError: (error) => {
+        if (error && error?.response?.status === 401) {
+          removeToken()
+        }
+      }
+    }
+  )
+
+  return { isLoading, error, data: data?.data?.data }
+}
