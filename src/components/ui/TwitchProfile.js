@@ -1,6 +1,7 @@
 import { useTwitchStreams, useTwitchUser } from '~/hooks/useTwitch'
 import Eye from '../icons/Eye'
 import Image from './Image'
+import ProfilePicture from './ProfilePicture'
 
 const ImagePlaceholder = () => (
   <div className="relative rounded-full overflow-hidden bg-purple-400 w-[50px] h-[50px]" />
@@ -25,7 +26,7 @@ const TwitchProfile = ({ id, liveOnly = false, as: Node = 'div' }) => {
     return <p>{error?.message || 'Something went wrong, please try again.'}</p>
 
   return data.length ? (
-    data.map(({ user_name, thumbnail_url, game_name, viewer_count }, i) => (
+    data.map(({ user_name, game_name, viewer_count }, i) => (
       <Node className="flex space-x-4 items-center" key={i}>
         <div className="relative rounded-full overflow-hidden bg-purple-400">
           <ProfilePicture id={id} />
@@ -78,24 +79,6 @@ const OfflineProfile = ({ id, as: Node = 'div' }) => {
         <p className="font-medium flex items-center space-x-1">Offline</p>
       </div>
     </Node>
-  ))
-}
-
-const ProfilePicture = ({ id }) => {
-  const { isLoading, error, data } = useTwitchUser(id)
-
-  if (isLoading || error) return <ImagePlaceholder />
-
-  return data.map(({ profile_image_url }, i) => (
-    <Image
-      src={profile_image_url}
-      className="w-[50px]"
-      alt=""
-      width={50}
-      height={50}
-      loadWhileIdle
-      key={i}
-    />
   ))
 }
 

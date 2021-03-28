@@ -40,7 +40,7 @@ const SearchChannel = () => {
           type="text"
           name="broadcaster_id"
           id="search-query"
-          autocomplete="off"
+          autoComplete="off"
           type="text"
           onChange={(e) => setChannelQuery(e.target.value)}
           value={channelQuery}

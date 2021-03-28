@@ -16,7 +16,7 @@ export const Row = ({
   ...props
 }) => (
   <Node
-    className={['flex flex-wrap -mx-4 lg:-mx-8', className].join(' ')}
+    className={['flex flex-wrap -mx-2 lg:-mx-4', className].join(' ')}
     {...props}
   >
     {children}
@@ -29,7 +29,7 @@ export const Col = ({
   as: Node = 'div',
   ...props
 }) => (
-  <Node className={['flex-none px-4 lg:px-8', className].join(' ')} {...props}>
+  <Node className={['flex-none px-2 lg:px-4', className].join(' ')} {...props}>
     {children}
   </Node>
 )

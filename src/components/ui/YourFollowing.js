@@ -5,7 +5,7 @@ import TwitchProfile from './TwitchProfile'
 
 const YourFollowing = ({ id }) => {
   const { isLoading, error, data } = useTwitchFollowers(id)
-  const [liveOnly, setLiveOnly] = useState(false)
+  const [liveOnly, setLiveOnly] = useState(true)
 
   if (isLoading) return <p>Loading...</p>
 

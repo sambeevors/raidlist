@@ -13,8 +13,6 @@ const YourChannel = () => {
   if (error)
     return <p>{error?.message || 'Something went wrong, please try again.'}</p>
 
-  console.log(data)
-
   return (
     <>
       <TwitchProfile id={data?.id} />

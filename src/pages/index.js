@@ -1,5 +1,6 @@
 import { Alfa, Bravo } from '~/components/headings'
 import { Col, Row } from '~/components/layout'
+import ReccomendedStreamsOrGames from '~/components/ui/ReccomendedStreamsOrGames'
 import SearchChannel from '~/components/ui/SearchChannel'
 import YourChannel from '~/components/ui/YourChannel'
 import YourFollowing from '~/components/ui/YourFollowing'
@@ -20,6 +21,7 @@ const Home = () => {
       <Col className="w-full lg:w-8/12 xl:w-9/12 lg:order-last">
         <Alfa className="mb-2 text-center">Search for channel</Alfa>
         <SearchChannel />
+        <ReccomendedStreamsOrGames id={user?.id} />
       </Col>
       <Col className="w-full lg:w-4/12 xl:w-3/12">
         <Row className="mt-8 lg:mt-0">

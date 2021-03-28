@@ -21,3 +21,15 @@ export const Bravo = ({ children, className, as: Node = 'h2', ...props }) => (
     {children}
   </Node>
 )
+
+export const Charlie = ({ children, className, as: Node = 'h3', ...props }) => (
+  <Node
+    className={[
+      'font-bold text-white tracking-widest uppercase',
+      className
+    ].join(' ')}
+    {...props}
+  >
+    {children}
+  </Node>
+)
