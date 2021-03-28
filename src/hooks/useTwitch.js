@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { useContext } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { useQuery } from 'react-query'
 import { AuthContext, useAuth } from '~/context/authContext'
 
@@ -172,6 +172,17 @@ export const useTwitchUser = (id) => {
   )
 
   return { isLoading, error, data: data?.data?.data }
+}
+
+export const useCurrentTwitchUser = () => {
+  const [user, setUser] = useState()
+  const { isLoading, error, data } = useTwitchUser()
+
+  useEffect(() => {
+    if (data) setUser(data[0])
+  }, [data])
+
+  return { isLoading, error, data: user }
 }
 
 export const useTwitchGame = (id) => {

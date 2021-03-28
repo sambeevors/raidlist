@@ -39,11 +39,14 @@ const SearchChannel = () => {
         <input
           type="text"
           name="broadcaster_id"
+          id="search-query"
+          autocomplete="off"
+          type="text"
           onChange={(e) => setChannelQuery(e.target.value)}
           value={channelQuery}
           className="p-6 px-12 rounded-full nm-inset-purple-500-lg text-white w-full border-2 border-transparent focus:border-white transition focus:outline-none block text-lg text-center"
         />
-        <div className="right-0 top-[50%] transform -translate-y-1/2 absolute px-8">
+        <div className="right-0 top-1/2 transform -translate-y-1/2 absolute px-8">
           <button
             className={`focus:outline-none block transition ${
               channelQuery ? 'opacity-100' : 'opacity-0'
@@ -72,7 +75,7 @@ const ChannelSearchResults = ({ query }) => {
     return <p>{error?.message || 'Something went wrong, please try again.'}</p>
 
   return (
-    <ul className="w-full grid grid-cols-1 lg:grid-cols-2 gap-8">
+    <ul className="w-full grid grid-cols-1 xl:grid-cols-2 gap-8">
       {data.map(
         ({ display_name, is_live, thumbnail_url, started_at, game_id }) => (
           <li className="flex space-x-4 items-center">
@@ -88,7 +91,7 @@ const ChannelSearchResults = ({ query }) => {
                 />
               </div>
               {is_live && (
-                <div className="py-1 px-2 text-xs rounded-full bg-red-500 text-white font-bold tracking-wide uppercase absolute left-[50%] bottom-0 transform -translate-x-1/2 translate-y-1/2 shadow">
+                <div className="py-1 px-2 text-xs rounded-full bg-red-500 text-white font-bold tracking-wide uppercase absolute left-1/2 bottom-0 transform -translate-x-1/2 translate-y-1/2 shadow">
                   Live
                 </div>
               )}

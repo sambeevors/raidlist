@@ -14,5 +14,8 @@ module.exports = {
     }
   },
   variants: {},
-  plugins: [require('tailwindcss-neumorphism')]
+  plugins: [
+    require('@tailwindcss/aspect-ratio'),
+    require('tailwindcss-neumorphism')
+  ]
 }
