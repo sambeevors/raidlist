@@ -6,7 +6,7 @@ import { AuthContext, useAuth } from '~/context/authContext'
 export const useTwitchChannel = (broadcaster_id) => {
   if (!broadcaster_id)
     return {
-      idLoading: false,
+      isLoading: false,
       error: {
         message: 'Missing broadcaster ID'
       },
